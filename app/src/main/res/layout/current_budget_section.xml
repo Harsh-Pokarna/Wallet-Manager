@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingHorizontal="10dp"
+    android:background="@drawable/current_budget_background"
+    android:layout_height="wrap_content">
+
+    <TableRow
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#686868"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:text="Current Budget"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/current_budget_see_more"
+            android:textColor="@color/linkBlue"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="12sp"
+            android:text="see more "/>
+        <ImageView
+            android:layout_marginTop="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_24"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            style="@style/PoppinsNormalText"
+            android:text="Your Weekly Budget"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/weekly_budget"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/PoppinsNormalText"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="500"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/red"
+            style="@style/PoppinsNormalText"
+            android:text="Amount Spent"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/amount_spent"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@color/red"
+            style="@style/PoppinsNormalText"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="- 200"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/PoppinsBoldText"
+            android:text="Remaining Amount"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/remaining_amount"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@color/green"
+            style="@style/PoppinsBoldText"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:text="300"/>
+    </TableRow>
+
+
+</TableLayout>
