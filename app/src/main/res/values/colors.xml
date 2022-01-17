@@ -14,4 +14,5 @@
     <color name="red">#FF0000</color>
     <color name="green">#53C020</color>
     <color name="linkBlue">#8D86FF</color>
+    <color name="hintColor">#BDBDBD</color>
 </resources>
