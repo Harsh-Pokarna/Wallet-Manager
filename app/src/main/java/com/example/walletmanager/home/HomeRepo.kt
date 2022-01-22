@@ -11,5 +11,5 @@ class HomeRepo(private val db: TransactionDatabase) {
     suspend fun deleteTransaction(transaction: Transaction) =
         db.getTransactionDao().deleteTransaction(transaction)
 
-    fun getAllTransactions() = db.getTransactionDao().getAllTransactions()
+    suspend fun getAllTransactions() = db.getTransactionDao().getAllTransactions()
 }

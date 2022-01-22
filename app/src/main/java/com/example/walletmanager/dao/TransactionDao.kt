@@ -12,7 +12,7 @@ interface TransactionDao {
     suspend fun insertTransaction(transaction: Transaction)
 
     @Query("SELECT * FROM TRANSACTIONS_TABLE")
-    fun getAllTransactions(): LiveData<List<Transaction>>
+    suspend fun getAllTransactions(): List<Transaction>
 
     @Delete
     suspend fun deleteTransaction(transaction: Transaction)

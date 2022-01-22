@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -58,7 +59,7 @@ dependencies {
 
     implementation "androidx.room:room-ktx:2.4.1"
 
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // Coroutines
 
@@ -75,5 +76,7 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
+    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation "androidx.fragment:fragment-ktx:1.4.0"
 
 }
