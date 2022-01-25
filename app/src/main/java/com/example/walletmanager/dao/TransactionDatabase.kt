@@ -7,9 +7,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.walletmanager.WalletManager
+import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
 
-@Database(entities = [Transaction::class], version = 3)
+@Database(entities = [Transaction::class, Tag::class], version = 4)
 abstract class TransactionDatabase : RoomDatabase() {
 
     abstract fun getTransactionDao() : TransactionDao

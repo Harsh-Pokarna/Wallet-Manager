@@ -20,9 +20,9 @@ data class Transaction(
 
     @ColumnInfo(name = "transactionDate")
     val transactionDate: String = "5 Jan, 2022",
-//
-//    @ColumnInfo(name = "ModeOfPayment")
-//    val modeOfPayment: RecordPaymentActivity.Companion.ModeOfPayment = RecordPaymentActivity.Companion.ModeOfPayment.CASH,
+
+    @ColumnInfo(name = "ModeOfPayment")
+    val modeOfPayment: ModeOfPayment,
 
     @ColumnInfo(name = "transactionTime")
     val transactionTime: String = "14:34",

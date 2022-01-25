@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.walletmanager">
 
+
+    <queries>
+        <package android:name="net.one97.paytm" />
+        <package android:name="com.google.android.apps.nbu.paisa.user"/>
+    </queries>
+
     <application
         android:name=".WalletManager"
         android:allowBackup="true"
@@ -22,7 +28,7 @@
         </activity>
         <activity
             android:name=".home.RecordPaymentActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".home.DashboardActivity"
             android:exported="false">
