@@ -97,6 +97,11 @@ class RecordPaymentActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please install Paytm", Toast.LENGTH_SHORT).show()
             }
         }
+        if (modeOfPayment == ModeOfPayment.CASH || modeOfPayment == ModeOfPayment.CARD) {
+            homeViewModel.insertTransaction(transaction)
+            Toast.makeText(this, "Transaction Added", Toast.LENGTH_SHORT).show()
+            startActivity(DashboardActivity.newInstance(this))
+        }
 //        val uri = Uri.Builder()
 //        uri.scheme("upi").authority("pay")
 //

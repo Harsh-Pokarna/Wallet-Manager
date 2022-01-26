@@ -1,5 +1,6 @@
 package com.example.walletmanager.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
@@ -13,10 +14,10 @@ interface TransactionDao {
     suspend fun insertTag(tag: Tag)
 
     @Query("SELECT * FROM TRANSACTIONS_TABLE")
-    suspend fun getAllTransactions(): List<Transaction>
+    fun getAllTransactions(): LiveData<List<Transaction>>
 
     @Query("SELECT * FROM TAGS_TABLE")
-    suspend fun getAllTags(): List<Tag>
+    fun getAllTags(): LiveData<List<Tag>>
 
     @Delete
     suspend fun deleteTransaction(transaction: Transaction)

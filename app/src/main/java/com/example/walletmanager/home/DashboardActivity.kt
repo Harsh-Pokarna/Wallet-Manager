@@ -11,6 +11,7 @@ import com.example.walletmanager.R
 import com.example.walletmanager.WalletManager
 import com.example.walletmanager.dao.TransactionDatabase
 import com.example.walletmanager.pojos.Transaction
+import com.example.walletmanager.profile.TagsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.activity_record_payment.*
 import kotlinx.android.synthetic.main.transaction_history_section.*
@@ -79,18 +80,23 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
     
     private fun setListeners() {
         add_transaction_button.setOnClickListener { startActivity(RecordPaymentActivity.newInstance(this)) }
-    	
+    	profile_image_button.setOnClickListener { startActivity(TagsActivity.newInstance(this)) }
     }
     
     private fun setObservers() {
-        homeViewModel.transactionsLiveData.observe(this, {
-            Log.e("TAG", "The value of transactionLivedata is: $it" )
-            if (it == null) {
-                Log.e("TAG", "setObservers: null list", )
-                return@observe
-            }
-            listOfTransactions = it
-            transactionHistoryAdapter.addData(listOfTransactions)
+//        homeViewModel.transactionsLiveData.observe(this, {
+//            Log.e("TAG", "The value of transactionLivedata is: $it" )
+//            if (it == null) {
+//                Log.e("TAG", "setObservers: null list", )
+//                return@observe
+//            }
+//            listOfTransactions = it
+//            transactionHistoryAdapter.addData(listOfTransactions)
+//        })
+
+        homeViewModel.getAllTransactions().observe(this, {
+            Log.e("TAG", "transaction values: $it")
+            transactionHistoryAdapter.addData(it)
         })
     }
 
@@ -99,6 +105,7 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
     }
 
     override fun onDeleteClicked(transaction: Transaction) {
+        Log.e("TAG", "delete click recorded")
         homeViewModel.deleteTransaction(transaction)
     }
 

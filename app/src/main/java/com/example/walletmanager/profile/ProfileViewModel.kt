@@ -17,8 +17,9 @@ class ProfileViewModel(private val profileRepo: ProfileRepo): ViewModel() {
         profileRepo.insertTag(tag)
     }
 
-    fun getAllTags() = viewModelScope.launch {
-        val response = profileRepo.getAllTags()
-        _tagsLiveData.value = response
+    fun deleteTag(tag: Tag) = viewModelScope.launch {
+        profileRepo.deleteTag(tag)
     }
+
+    fun getAllTags() = profileRepo.getAllTags()
 }

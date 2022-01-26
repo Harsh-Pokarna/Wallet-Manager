@@ -31,6 +31,7 @@ class TransactionHistoryAdapter(private var listOfTransaction: List<Transaction>
 
     fun addData(listOfTransaction: List<Transaction>) {
         this.listOfTransaction = listOfTransaction
+        notifyDataSetChanged()
     }
 
     inner class TransactionHistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

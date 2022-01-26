@@ -25,16 +25,16 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 //
 //
-//        val transaction1 = Transaction(transactionAmount = 54f,
-//            transactionDescription = "Budh Redi", id = 1L)
-//        val transaction2 = Transaction(transactionAmount = 64f,
-//            transactionDescription = "Ram Redi", id = 2L)
-//        val transaction3 = Transaction(transactionAmount = 74f,
-//            transactionDescription = "Budh Redi", id = 3L)
-//
-//        homeViewModel.insertTransaction(transaction1)
-//        homeViewModel.insertTransaction(transaction2)
-//        homeViewModel.insertTransaction(transaction3)
+        val transaction1 = Transaction(transactionAmount = 54f,
+            transactionDescription = "Budh Redi", id = 1L)
+        val transaction2 = Transaction(transactionAmount = 64f,
+            transactionDescription = "Ram Redi", id = 2L)
+        val transaction3 = Transaction(transactionAmount = 74f,
+            transactionDescription = "Budh Redi", id = 3L)
+
+        homeViewModel.insertTransaction(transaction1)
+        homeViewModel.insertTransaction(transaction2)
+        homeViewModel.insertTransaction(transaction3)
 
         startActivity(Intent(this, DashboardActivity::class.java))
 

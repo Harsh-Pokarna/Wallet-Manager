@@ -15,11 +15,9 @@ class HomeViewModel(private val homeRepo: HomeRepo) : ViewModel() {
     }
 
     fun deleteTransaction(transaction: Transaction) = viewModelScope.launch {
-        val response = homeRepo.deleteTransaction(transaction)
+        homeRepo.deleteTransaction(transaction)
     }
 
-    fun getAllTransactions() = viewModelScope.launch {
-        val response = homeRepo.getAllTransactions()
-        _transactionsLiveData.value = response
-    }
+    fun getAllTransactions() = homeRepo.getAllTransactions()
+
 }

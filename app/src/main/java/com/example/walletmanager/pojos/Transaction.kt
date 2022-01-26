@@ -22,7 +22,7 @@ data class Transaction(
     val transactionDate: String = "5 Jan, 2022",
 
     @ColumnInfo(name = "ModeOfPayment")
-    val modeOfPayment: ModeOfPayment,
+    val modeOfPayment: ModeOfPayment = ModeOfPayment.CASH,
 
     @ColumnInfo(name = "transactionTime")
     val transactionTime: String = "14:34",

@@ -10,7 +10,7 @@ import com.example.walletmanager.WalletManager
 import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
 
-@Database(entities = [Transaction::class, Tag::class], version = 4)
+@Database(entities = [Transaction::class, Tag::class], version = 6)
 abstract class TransactionDatabase : RoomDatabase() {
 
     abstract fun getTransactionDao() : TransactionDao
