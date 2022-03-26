@@ -11,6 +11,7 @@
     <color name="colorPrimary">#261B29</color>
     <color name="colorSecondary">#352539</color>
     <color name="colorAccent">#AC27FD</color>
+    <color name="colorTransparent">@android:color/transparent</color>
     <color name="softGreen">#FEF4F4</color>
     <color name="red">#FF0000</color>
     <color name="green">#53C020</color>

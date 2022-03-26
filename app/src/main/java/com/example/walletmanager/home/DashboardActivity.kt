@@ -94,10 +94,10 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
 //            transactionHistoryAdapter.addData(listOfTransactions)
 //        })
 
-        homeViewModel.getAllTransactions().observe(this, {
+        homeViewModel.getAllTransactions().observe(this) {
             Log.e("TAG", "transaction values: $it")
             transactionHistoryAdapter.addData(it)
-        })
+        }
     }
 
     companion object {
@@ -105,7 +105,6 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
     }
 
     override fun onDeleteClicked(transaction: Transaction) {
-        Log.e("TAG", "delete click recorded")
         homeViewModel.deleteTransaction(transaction)
     }
 
