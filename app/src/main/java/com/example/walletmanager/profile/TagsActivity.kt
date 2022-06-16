@@ -52,14 +52,18 @@ class TagsActivity : AppCompatActivity(), TagsAdapter.OnClicked {
             profileViewModel.insertTag(tag)
         }
 
+        activity_tags_back_btn.setOnClickListener {
+            onBackPressed();
+        }
+
     }
 
     private fun setObservers() {
 
-        profileViewModel.getAllTags().observe(this, {
+        profileViewModel.getAllTags().observe(this) {
             Log.e("TAG", "changes observed: $it")
             tagsAdapter.addData(it)
-        })
+        }
 
     }
 

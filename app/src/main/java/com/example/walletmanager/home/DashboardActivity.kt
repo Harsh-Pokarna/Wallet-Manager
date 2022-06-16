@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletmanager.R
 import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.Transaction
+import com.example.walletmanager.profile.ProfileActivity
 import com.example.walletmanager.profile.TagsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.transaction_history_section.*
@@ -78,7 +79,7 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
     
     private fun setListeners() {
         add_transaction_button.setOnClickListener { startActivity(RecordPaymentActivity.newInstance(this)) }
-    	profile_image_button.setOnClickListener { startActivity(TagsActivity.newInstance(this)) }
+    	profile_image_button.setOnClickListener { startActivity(ProfileActivity.newInstance(this)) }
     }
     
     private fun setObservers() {

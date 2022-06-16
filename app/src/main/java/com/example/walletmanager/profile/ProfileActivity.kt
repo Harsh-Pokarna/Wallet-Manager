@@ -8,6 +8,7 @@ import com.example.walletmanager.R
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -31,12 +32,14 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun setObservers() {
-
+        activity_profile_back_btn.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setListeners() {
         activity_profile_change_tags_btn.setOnClickListener {
-            TagsActivity.newInstance(this)
+            startActivity(TagsActivity.newInstance(this))
         }
     }
 
