@@ -2,7 +2,6 @@ package com.example.walletmanager
 
 import android.app.Application
 import android.content.Context
-import com.example.walletmanager.dao.TransactionDatabase
 
 class WalletManager : Application() {
 

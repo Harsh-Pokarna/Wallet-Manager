@@ -19,5 +19,8 @@ class HomeViewModel(private val homeRepo: HomeRepo) : ViewModel() {
     }
 
     fun getAllTransactions() = homeRepo.getAllTransactions()
+//    fun getAllTransactions() {
+//        _transactionsLiveData = homeRepo.getAllTransactions() as MutableLiveData<List<Transaction>>
+//    }
 
 }

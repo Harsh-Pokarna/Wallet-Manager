@@ -8,13 +8,13 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletmanager.R
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.Tag
 import kotlinx.android.synthetic.main.activity_tags.*
 
 class TagsActivity : AppCompatActivity(), TagsAdapter.OnClicked {
 
-    private var profileRepo = ProfileRepo(TransactionDatabase.invoke())
+    private var profileRepo = ProfileRepo(WalletManagerDatabase.invoke())
     private var profileModelFactory = ProfileViewModelFactory(profileRepo)
 
     private val tagsAdapter by lazy { TagsAdapter(emptyList(), this) }

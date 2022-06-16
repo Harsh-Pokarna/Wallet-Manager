@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
 @Dao
-interface TransactionDao {
+interface WalletManagerDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTransaction(transaction: Transaction)

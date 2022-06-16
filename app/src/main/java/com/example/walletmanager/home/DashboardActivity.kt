@@ -8,19 +8,17 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletmanager.R
-import com.example.walletmanager.WalletManager
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.Transaction
 import com.example.walletmanager.profile.TagsActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
-import kotlinx.android.synthetic.main.activity_record_payment.*
 import kotlinx.android.synthetic.main.transaction_history_section.*
 
 class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClicked {
 
     private val transactionHistoryAdapter by lazy { TransactionHistoryAdapter(emptyList(), this) }
     private var listOfTransactions: List<Transaction> = emptyList()
-    private var homeRepo = HomeRepo(TransactionDatabase.invoke())
+    private var homeRepo = HomeRepo(WalletManagerDatabase.invoke())
     private var viewModelFactory = HomeViewModelFactory(homeRepo)
 //    private lateinit var homeRepo: HomeRepo
 //    private lateinit var viewModelFactory: HomeViewModelFactory
@@ -90,8 +88,7 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
 //                Log.e("TAG", "setObservers: null list", )
 //                return@observe
 //            }
-//            listOfTransactions = it
-//            transactionHistoryAdapter.addData(listOfTransactions)
+//            transactionHistoryAdapter.addData(it)
 //        })
 
         homeViewModel.getAllTransactions().observe(this) {

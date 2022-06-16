@@ -1,10 +1,10 @@
 package com.example.walletmanager.home
 
 import androidx.lifecycle.LiveData
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.Transaction
 
-class HomeRepo(private val db: TransactionDatabase) {
+class HomeRepo(private val db: WalletManagerDatabase) {
 
     suspend fun insertTransaction(transaction: Transaction) =
         db.getTransactionDao().insertTransaction(transaction)

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.home.DashboardActivity
 import com.example.walletmanager.home.HomeRepo
 import com.example.walletmanager.home.HomeViewModel
@@ -13,7 +13,7 @@ import com.example.walletmanager.pojos.Transaction
 
 class SplashActivity : AppCompatActivity() {
 
-    private var homeRepo = HomeRepo(TransactionDatabase.invoke())
+    private var homeRepo = HomeRepo(WalletManagerDatabase.invoke())
     private var viewModelFactory = HomeViewModelFactory(homeRepo)
 //    private lateinit var homeRepo: HomeRepo
 //    private lateinit var viewModelFactory: HomeViewModelFactory

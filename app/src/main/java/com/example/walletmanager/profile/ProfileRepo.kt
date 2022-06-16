@@ -1,10 +1,10 @@
 package com.example.walletmanager.profile
 
 import androidx.lifecycle.LiveData
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.Tag
 
-class ProfileRepo(private val db: TransactionDatabase) {
+class ProfileRepo(private val db: WalletManagerDatabase) {
 
     suspend fun insertTag(tag: Tag) = db.getTransactionDao().insertTag(tag = tag)
 

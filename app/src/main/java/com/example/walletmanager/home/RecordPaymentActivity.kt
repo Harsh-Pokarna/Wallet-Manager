@@ -1,25 +1,21 @@
 package com.example.walletmanager.home
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.lifecycle.Observer
 import com.example.walletmanager.R
-import com.example.walletmanager.dao.TransactionDatabase
+import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.ModeOfPayment
 import com.example.walletmanager.pojos.Transaction
 import kotlinx.android.synthetic.main.activity_record_payment.*
 
 class RecordPaymentActivity : AppCompatActivity() {
 
-    private val homeRepo = HomeRepo(TransactionDatabase.invoke())
+    private val homeRepo = HomeRepo(WalletManagerDatabase.invoke())
     private val viewModelFactory = HomeViewModelFactory(homeRepo)
 
     private val homeViewModel by viewModels<HomeViewModel> { viewModelFactory }

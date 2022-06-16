@@ -1,8 +1,5 @@
 package com.example.walletmanager.dao
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -11,19 +8,19 @@ import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
 
 @Database(entities = [Transaction::class, Tag::class], version = 6)
-abstract class TransactionDatabase : RoomDatabase() {
+abstract class WalletManagerDatabase : RoomDatabase() {
 
-    abstract fun getTransactionDao() : TransactionDao
+    abstract fun getTransactionDao() : WalletManagerDao
 
     companion object {
         @Volatile
-        private var dbInstance: TransactionDatabase? = null
+        private var dbInstance: WalletManagerDatabase? = null
         private var LOCK = Any()
 
         operator fun invoke() = dbInstance ?: synchronized(LOCK) {
             dbInstance ?: Room.databaseBuilder(
                 WalletManager.applicationContext(),
-                TransactionDatabase::class.java,
+                WalletManagerDatabase::class.java,
                 "TransactionDatabase.db"
             ).fallbackToDestructiveMigration().build().also {
                 dbInstance = it
