@@ -55,7 +55,7 @@ class TransactionHistoryAdapter(private var listOfTransaction: List<Transaction>
 
     }
 
-    interface OnClicked{
+    interface OnClicked {
         fun onDeleteClicked(transaction: Transaction)
         fun onItemClicked(transaction: Transaction)
     }

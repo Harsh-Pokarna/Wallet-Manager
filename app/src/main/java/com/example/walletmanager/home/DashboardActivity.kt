@@ -45,9 +45,6 @@ class DashboardActivity : AppCompatActivity(), TransactionHistoryAdapter.OnClick
 
     private fun initialiseVariables() {
 //        WalletManager.setContext(this)
-        if (applicationContext == null) {
-            Log.e("TAG", "APPLICATION CONTEXT IS NULL")
-        }
 //        homeRepo = HomeRepo(TransactionDatabase.invoke(application))
 //        viewModelFactory = HomeViewModelFactory(homeRepo)
 //        homeViewModel by viewModels<HomeViewModel> { viewModelFactory }

@@ -5,20 +5,33 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walletmanager.R
 import com.example.walletmanager.dao.WalletManagerDatabase
 import com.example.walletmanager.pojos.ModeOfPayment
+import com.example.walletmanager.pojos.Tag
 import com.example.walletmanager.pojos.Transaction
+import com.example.walletmanager.profile.ProfileRepo
+import com.example.walletmanager.profile.ProfileViewModel
+import com.example.walletmanager.profile.ProfileViewModelFactory
 import kotlinx.android.synthetic.main.activity_record_payment.*
 
-class RecordPaymentActivity : AppCompatActivity() {
+class RecordPaymentActivity : AppCompatActivity(),  PaymentTagsAdapter.OnClicked{
+
+    private val paymentTagsAdapter by lazy { PaymentTagsAdapter(emptyList(), this) }
 
     private val homeRepo = HomeRepo(WalletManagerDatabase.invoke())
+    private val profileRepo = ProfileRepo(WalletManagerDatabase.invoke())
     private val viewModelFactory = HomeViewModelFactory(homeRepo)
+    private val profileViewModelFactory = ProfileViewModelFactory(profileRepo)
 
     private val homeViewModel by viewModels<HomeViewModel> { viewModelFactory }
+    private val tagsViewModel by viewModels<ProfileViewModel> { profileViewModelFactory }
+
+    private var listOfTags: List<Tag> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +52,8 @@ class RecordPaymentActivity : AppCompatActivity() {
     }
 
     private fun setViews() {
-
+        payment_tag_recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        payment_tag_recycler_view.adapter = paymentTagsAdapter
     }
 
     private fun setListeners() {
@@ -117,14 +131,22 @@ class RecordPaymentActivity : AppCompatActivity() {
 
     }
 
-private fun setObservers() {
+    private fun setObservers() {
+        tagsViewModel.getAllTags().observe(this) {
+            listOfTags = it
+            paymentTagsAdapter.addData(it)
+        }
 
-}
+    }
 
-companion object {
+    companion object {
 
-    fun newInstance(context: Context) = Intent(context, RecordPaymentActivity::class.java)
-}
+        fun newInstance(context: Context) = Intent(context, RecordPaymentActivity::class.java)
+    }
+
+    override fun OnClicked() {
+
+    }
 
 //    private fun upiPaymentDataOperation(data: String) {
 //            var str: String? = data

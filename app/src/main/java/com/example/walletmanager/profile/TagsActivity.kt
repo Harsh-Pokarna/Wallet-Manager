@@ -68,6 +68,7 @@ class TagsActivity : AppCompatActivity(), TagsAdapter.OnClicked {
                 }.setNegativeButton("No") { dialogInterface, _ ->
                     dialogInterface.cancel()
                 }.show();
+
             tagInput.setText("")
         }
 

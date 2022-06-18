@@ -27,4 +27,7 @@ data class Transaction(
     @ColumnInfo(name = "transactionTime")
     val transactionTime: String = "14:34",
 
+//    @ColumnInfo(name = "listOfTags")
+//    val listOfTags: List<Tag> = emptyList()
+
     )
